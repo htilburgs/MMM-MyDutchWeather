@@ -1,0 +1,123 @@
+
+/*
+//-------------------------------------------
+MMM-MyDutchWeather - CSS
+Copyright (C) 2019 - H. Tilburgs
+MIT License
+//-------------------------------------------
+Copy and paste any or all of these css entries into your custom.css file inside your
+css folder. The functions are annotated to make things as easy as possible for you.
+Use any colors you want! Go to - "http://htmlcolorcodes.com/color-picker/"
+Pick your color, copy and paste the HEX number. Example - #62FF00 = bright green.
+*/
+
+.header {
+     color: white;               /* Header color. Default is white. */
+     text-align: left;           /* Align header text. (left, center, right) */
+}
+
+.woonplaats-row {
+     line-height: 25px;
+}
+
+.woonplaatstextcell {
+     color: white !important;               
+     text-align: left !important;       
+}
+
+.temptextcell { 
+     color: white !important;               
+     text-align: right !important;   
+}
+
+.maxtempdatacell {
+     display: table-cell;
+     width: 50%;
+     font-size: 20px;
+     line-height: 2;
+     text-align: left !important;         
+}
+
+.mintempdatacell {
+     display: table-cell;
+     width: 50%;
+     font-size: 20px;
+     line-height: 2;
+     text-align: right !important;         
+}
+
+.huidigcell {
+     display: table-cell;
+     font-size: 20px;
+     text-align: left !important;       
+}
+
+.neerslagtextcell, .neerslagdatacell {
+     display: table-cell;
+     width: 50%;
+     font-size: 20px;
+     text-align: left !important;    
+}
+
+.zontextcell, .zondatacell {
+     display: table-cell;
+     width: 50%;
+     font-size: 20px;
+     text-align: left !important;
+}
+
+.windrtextcell, .windrdatacell {
+     display: table-cell;
+     width: 50%;
+     font-size: 20px;
+     text-align: left !important;
+}
+
+.windstextcell, .windsdatacell {
+     display: table-cell;
+     width: 50%;
+     font-size: 20px;
+     text-align: left !important;
+}
+
+.luchtdtextcell, .luchtddatacell {
+     display: table-cell;
+     width: 50%;
+     font-size: 20px;
+     text-align: left !important;
+}
+
+.zichttextcell, .zichtdatacell {
+     display: table-cell;
+     width: 50%;
+     font-size: 20px;
+     text-align: left !important;
+}
+
+.luchtvtextcell, .luchtvdatacell {
+     display: table-cell;
+     width: 50%;
+     font-size: 20px;
+     text-align: left !important;
+}
+
+.zonoptextcell, .zonopdatacell {
+     display: table-cell;
+     width: 50%;
+     font-size: 20px;
+     text-align: left !important;
+}
+
+.zondertextcell, .zonderdatacell {
+     display: table-cell;
+     width: 50%;
+     font-size: 20px;
+     text-align: left !important;
+}
+
+.footer {
+     font-size: 12px;
+     line-height: 16px;
+     color: #333;
+     text-align: right !important;
+}
