@@ -5,7 +5,8 @@ This modules is ONLY for use in the Netherlands and it presents the actual weath
 To use this module, an API Key is required. This API Key [you can get here](http://weerlive.nl/api/toegang/index.php) for free. </br> The key and the use of the key is FREE and as-is. The number of data-requests is limited to 300 requests per day. 
 
 ![Screenshot](screenshot01.png) <br />
-![Screenshot](screenshot02.png)
+![Screenshot](screenshot02.png) <br />
+![Screenshot](screenshot03.png>
 
 ## Installation
 Clone this repository in your modules folder, and install dependencies:
@@ -31,6 +32,7 @@ Add the module to your modules array in your config.js.
 	  longitude: null,			// Longitude of your city
 	  apiKey: null,				// API Key - Get for free at http://weerlive.nl/api/toegang/index.php
 	  showIcons: true,			// Display Icons or Text
+	  showExtra: false,			// Display additional weather information
 	  maxWidth: "500px"			// Max width wrapper
   }
 },
@@ -44,8 +46,9 @@ Here is the documentation of options for the modules configuration
 |:----------------------|:-------------
 | `latitude`            | **REQUIRED** - The latitude of your location for a correct calculation <br /><br />**Number** <br />Default: `null`
 | `longitude`           | **REQUIRED** - The longitude of your location for a correct calculation <br /><br />**Number** <br />Default: `null`
-| 'apiKey'		| **REQUIRED** - The API Key needed for MyDutchWeather <br />Get for free at [Weerlive.nl](http://weerlive.nl/api/toegang/index.php)
+| `apiKey`		| **REQUIRED** - The API Key needed for MyDutchWeather <br />Get for free at [Weerlive.nl](http://weerlive.nl/api/toegang/index.php)
 | `showIcons`		| Choose if you like to see Icons or Plain Text <br /><br />**True/False**<br />Default: `true`
+| `showExtra`		| Choose if you like to see additional weather information <br /><br />**True/False**<br />Default: `false`
 | `maxWidth`		| The maximum width of the module <br /><br />Default: `500px`
 
 ## License
