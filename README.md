@@ -6,7 +6,7 @@ To use this module, an API Key is required. This API Key [you can get here](http
 
 ![Screenshot](screenshot01.png) <br />
 ![Screenshot](screenshot02.png) <br />
-![Screenshot](screenshot03.png>
+![Screenshot](screenshot03.png)
 
 ## Installation
 Clone this repository in your modules folder, and install dependencies:
