@@ -1,6 +1,6 @@
 /*
 //-------------------------------------------
-MMM-MyDutchWeatherMWB
+MMM-MyDutchWeather
 Copyright (C) 2019 - H. Tilburgs
 MIT License
 //-------------------------------------------
