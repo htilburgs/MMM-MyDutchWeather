@@ -28,9 +28,9 @@ Add the module to your modules array in your config.js.
   position: 'top_left',
   header: 'My Dutch Weather',
   config: {
-	  latitude: null,			// Latitude of your city
-	  longitude: null,			// Longitude of your city
-	  apiKey: null,				// API Key - Get for free at http://weerlive.nl/api/toegang/index.php
+	  latitude: "0.000000",			// Latitude of your city between ""
+	  longitude: "0.00000",			// Longitude of your city between ""
+	  apiKey: "0123456789",			// API Key between "" - Get for free at http://weerlive.nl/api/toegang/index.php
 	  showIcons: true,			// Display Icons or Text
 	  showExtra: false,			// Display additional weather information
 	  maxWidth: "500px"			// Max width wrapper
