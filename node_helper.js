@@ -39,5 +39,5 @@ module.exports = NodeHelper.create({
             if (notification === 'GET_MWB') {
             this.getMWB(payload);
             }
-  }
+  },
 });
