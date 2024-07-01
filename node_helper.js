@@ -12,9 +12,9 @@ module.exports = NodeHelper.create({
 
   start: function() {
           console.log("Starting node_helper for: " + this.name);
-  }
+  },
 
-getMWB: function(url) {
+  getMWB: function(url) {
         // Make a GET request using the Fetch API
         fetch(url)
           .then(response => {
