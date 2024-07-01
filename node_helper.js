@@ -3,6 +3,10 @@
 MMM-MyDutchWeather
 Copyright (C) 2019 - H. Tilburgs
 MIT License
+
+v1.0 : Initial version
+v2.0 : Update request to fetch (request package has been deprecated)
+
 //-------------------------------------------
 */
 
