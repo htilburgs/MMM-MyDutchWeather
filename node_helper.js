@@ -7,7 +7,6 @@ MIT License
 */
 
 const NodeHelper = require('node_helper');
-const request = require('request');
 
 module.exports = NodeHelper.create({
 
@@ -15,23 +14,31 @@ module.exports = NodeHelper.create({
           console.log("Starting node_helper for: " + this.name);
   },
 
-  getMWB: function(url) {
-	request({
-	url: url,
-	method: 'GET'
-	}, 
-	(error, response, body) => {
-		if (!error && response.statusCode == 200) {
-		var result = JSON.parse(body).liveweer['0'];			// JSON data path - object.liveweer.0
-		console.log(response.statusCode + result);				// uncomment to see in terminal
-		this.sendSocketNotification('MWB_RESULT', result);
-		}
-        });
-    },
+getMWB: function(url) {
+        // Make a GET request using the Fetch API
+        fetch(url)
+          .then(response => {
+            if (!response.ok) {
+              console.error('MMM-MyDutchWeather: Network response was not ok');
+            }
+            return response.json();
+          })
+
+          .then(result => {
+            // Process the retrieved user data
+            console.log(result.liveweer['0']); // Remove trailing slashes to display data in Console for testing
+            this.sendSocketNotification('MWB_RESULT', result.liveweer['0']);
+          })
+
+          .catch(error => {
+            console.error('Error:', error);
+          });
+  },
 
   socketNotificationReceived: function(notification, payload) {
             if (notification === 'GET_MWB') {
             this.getMWB(payload);
             }
-  }
+  },
+
 });
