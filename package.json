@@ -1,10 +1,10 @@
 {
-          "name": "MMM-MyDutchWeather",
+          "name": "MMM-MijnWeer",
           "version": "1.0.0",
           "description": "MagicMirror 2 module to get real-time Dutch weather information from Weer API.",
           "repository": {
                     "type": "git",
-                    "url": "git+https://github.com/htilburgs/MMM-MyDutchWeather"
+                    "url": "git+https://github.com/htilburgs/MMM-MijnWeer"
           },
           "keywords": [
                     "magic mirror",
@@ -16,11 +16,12 @@
           "author": "Harm Tilburgs",
           "license": "MIT",
           "bugs": {
-                    "url": "https://github.com/htilburgs/MMM-MyDutchWeather/issues"
+                    "url": "https://github.com/htilburgs/MMM-MijnWeer/issues"
           },
-          "homepage": "https://github.com/htilburgs/MMM-MyDutchWeather#readme",
+          "homepage": "https://github.com/htilburgs/MMM-MijnWeer#readme",
           "dependencies": {
-                    "moment": "^2.29.4",
-                    "moment-timezone": "^0.5.43"
+                    "moment": "^2.24.0",
+                    "moment-timezone": "^0.5.21",
+                    "request": "^2.88.2"
           } 
 }
