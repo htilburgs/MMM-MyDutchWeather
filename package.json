@@ -21,7 +21,6 @@
           "homepage": "https://github.com/htilburgs/MMM-MyDutchWeather#readme",
           "dependencies": {
                     "moment": "^2.29.4",
-                    "moment-timezone": "^0.5.43",
-                    "request": "^2.88.2"
+                    "moment-timezone": "^0.5.43"
           } 
 }
