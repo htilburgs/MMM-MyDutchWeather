@@ -17,6 +17,13 @@ git clone https://github.com/htilburgs/MMM-MyDutchWeather.git
 cd MMM-MyDutchWeather
 npm install 
 ```
+## Update
+When you need to update this module:
+
+```
+cd ~/MagicMirror/modules/MMM-MyDutchWeather
+git pull
+```
 
 ## Configuration
 Go to the MagicMirror/config directory and edit the config.js file.
@@ -50,6 +57,9 @@ Here is the documentation of options for the modules configuration
 | `showIcons`		| Choose if you like to see Icons or Plain Text <br /><br />**True/False**<br />Default: `true`
 | `showExtra`		| Choose if you like to see additional weather information <br /><br />**True/False**<br />Default: `false`
 | `maxWidth`		| The maximum width of the module <br /><br />Default: `500px`
+
+## Version
+v2.0 - 01-07-2024	: update node_helper.js from request (deprecated) to fetch
 
 ## License
 ### The MIT License (MIT)
