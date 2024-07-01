@@ -2,7 +2,7 @@
 This a module for [Magic Mirror²](https://github.com/MichMich/MagicMirror) smart mirror project.</br>
 This modules is ONLY for use in the Netherlands and it presents the actual weather information for your dutch city from the KNMI directly from the 10-minutes network.
 
-To use this module, an API Key is required. This API Key [you can get here](http://weerlive.nl/api/toegang/index.php) for free. </br> The key and the use of the key is FREE and as-is. The number of data-requests is limited to 300 requests per day. 
+To use this module, an API Key is required. This API Key [you can get here](https://weerlive.nl/delen.php#tab1) for free. </br> The key and the use of the key is FREE and as-is. The number of data-requests is limited to 300 requests per day. 
 
 ![Screenshot](screenshot01.png) <br />
 ![Screenshot](screenshot02.png) <br />
@@ -37,13 +37,17 @@ Add the module to your modules array in your config.js.
   config: {
 	  latitude: "0.000000",			// Latitude of your city between ""
 	  longitude: "0.00000",			// Longitude of your city between ""
-	  apiKey: "0123456789",			// API Key between "" - Get for free at http://weerlive.nl/api/toegang/index.php
+	  apiKey: "0123456789",			// API Key between "" - Get for free at https://weerlive.nl/delen.php#tab1
 	  showIcons: true,			// Display Icons or Text
 	  showExtra: false,			// Display additional weather information
 	  maxWidth: "500px"			// Max width wrapper
   }
 },
 ```
+## Free API Key
+Get your Free API Key at https://weerlive.nl/delen.php#tab1
+
+## Latitude & Longitude
 To get your latitude and longitude, you can go to https://latitudelongitude.org
 
 ## Module configuration
