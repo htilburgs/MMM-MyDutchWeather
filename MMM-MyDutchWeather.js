@@ -72,7 +72,6 @@ Module.register('MMM-MyDutchWeather', {
         	}	
 
 		var MWB = this.MWB;
-		var LW = this.MWB.liveweer['0'];
 
 		// creating the tablerows
 		var WoonplaatsRow = document.createElement("tr");
@@ -270,6 +269,7 @@ Module.register('MMM-MyDutchWeather', {
 	processMWB: function(data) { 
 		this.MWB = data; 
 		console.log(this.MWB); // uncomment to see if you're getting data (in dev console)
+		console.log(this.MWB.liveweer['0']);
 		this.loaded = true;
 	},
 	
