@@ -1,4 +1,11 @@
 {
-    "RAINFALL-CHANCE": "Blabla",
-    "SUN-CHANCE": "Zonkans"
+    "RAINFALL-CHANCE": "Neerslagkans",
+    "SUN-CHANCE": "Zonkans",
+    "WIND-DIR": "Windrichting",
+    "WIND-FORCE": "Windkracht",
+    "AIR-PRESS": "Luchtdruk",
+    "VISIBILITY": "Zicht",
+    "AIR-MOIST": "Luchtvochtigheid",
+    "SUNUP": "Zonopkomst",
+    "SUNDOWN": "Zonsondergang",
 }
