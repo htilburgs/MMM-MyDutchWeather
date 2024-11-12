@@ -71,7 +71,6 @@ Module.register('MMM-MyDutchWeather', {
         	}	
 
 		var MWB = this.MWB;
-		for (var w of this.liveweer) {
 
 		// creating the tablerows
 		var WoonplaatsRow = document.createElement("tr");
@@ -79,13 +78,13 @@ Module.register('MMM-MyDutchWeather', {
 		
 		var WoonplaatsTextCell = document.createElement("td");
 		WoonplaatsTextCell.className = "normal woonplaatstextcell";
-		WoonplaatsTextCell.innerHTML = w.plaats; 
+		WoonplaatsTextCell.innerHTML = MWB.plaats; 
 		WoonplaatsRow.appendChild(WoonplaatsTextCell);
 		table.appendChild(WoonplaatsRow);
 		
 		var TempTextCell = document.createElement("td");
 		TempTextCell.className = "normal temptextcell";
-		TempTextCell.innerHTML = w.temp + " ℃";
+		TempTextCell.innerHTML = MWB.temp + " ℃";
 		WoonplaatsRow.appendChild(TempTextCell);
 		table.appendChild(WoonplaatsRow);
 		}
