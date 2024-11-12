@@ -267,6 +267,8 @@ Module.register('MMM-MyDutchWeather', {
 	processMWB: function(data) { 
 		this.MWB = data; 
 		console.log(this.MWB); // uncomment to see if you're getting data (in dev console)
+		console.log(this.MWB.liveweer);
+		console.log(this.MWB.wk_verw);
 		this.loaded = true;
 	},
 	
