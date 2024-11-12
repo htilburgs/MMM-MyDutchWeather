@@ -27,7 +27,6 @@ getMWB: function(url) {
               console.error('MMM-MyDutchWeather: Network response was not ok');
             }
             return response.json();
-            console.log response.json();
           })
 
           .then(result => {
