@@ -49,7 +49,7 @@ Module.register('MMM-MyDutchWeather', {
 			
 		// Set locales
 		// this.url = "https://weerlive.nl/api/json-data-10min.php?key=" + this.config.apiKey + "&locatie=" + this.config.latitude + "," + this.config.longitude;	
-		this.url = "https://weerlive.nl/api/weerlive_api_v2.php?key" + this.config.apiKey + "&locatie" + this.config.latitude + "," + this.config.longitude;
+		this.url = "https://weerlive.nl/api/weerlive_api_v2.php?key=" + this.config.apiKey + "&locatie=" + this.config.latitude + "," + this.config.longitude;
 		this.MWB = [];			// <-- Create empty MWB array
 		this.scheduleUpdate();       	// <-- When the module updates (see below)
 	},
@@ -62,7 +62,7 @@ Module.register('MMM-MyDutchWeather', {
 		
 		// creating the wrapper
 		var wrapper = document.createElement("div");
-		wrapper.className = "wrapper";
+		wrapper.className = "wrapper";=
 		wrapper.style.maxWidth = this.config.maxWidth;
 	
 		// The loading sequence
