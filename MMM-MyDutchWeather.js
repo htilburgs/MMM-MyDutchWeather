@@ -268,10 +268,6 @@ Module.register('MMM-MyDutchWeather', {
 	// this processes your data
 	processMWB: function(data) { 
 		this.MWB = data; 
-		this.liveweather=[]
-    		this.dailyweather=[]
-    		this.hourlyweather=[]
-		
 		console.log(this.MWB); // uncomment to see if you're getting data (in dev console)
 		this.loaded = true;
 	},
