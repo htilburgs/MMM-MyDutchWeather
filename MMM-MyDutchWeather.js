@@ -78,13 +78,13 @@ Module.register('MMM-MyDutchWeather', {
 		
 		var WoonplaatsTextCell = document.createElement("td");
 		WoonplaatsTextCell.className = "normal woonplaatstextcell";
-		WoonplaatsTextCell.innerHTML = MWB.plaats; 
+		WoonplaatsTextCell.innerHTML = MWB.liveweer.plaats; 
 		WoonplaatsRow.appendChild(WoonplaatsTextCell);
 		table.appendChild(WoonplaatsRow);
 		
 		var TempTextCell = document.createElement("td");
 		TempTextCell.className = "normal temptextcell";
-		TempTextCell.innerHTML = MWB.temp + " ℃";
+		TempTextCell.innerHTML = MWB.liveweer.temp + " ℃";
 		WoonplaatsRow.appendChild(TempTextCell);
 		table.appendChild(WoonplaatsRow);
 		
@@ -93,13 +93,13 @@ Module.register('MMM-MyDutchWeather', {
 
 		var MaxTempDataCell = document.createElement("td");
 		MaxTempDataCell.className = "small maxtempdatacell";
-		MaxTempDataCell.innerHTML = this.config.showIcons == false ? "(Max) " + MWB.max_temp  + " ℃" : '<i class="wi wi-thermometer"></i>' + "&nbsp;" + MWB.d0tmax + " ℃";
+		MaxTempDataCell.innerHTML = this.config.showIcons == false ? "(Max) " + MWB.wk_verw.max_temp  + " ℃" : '<i class="wi wi-thermometer"></i>' + "&nbsp;" + MWB.d0tmax + " ℃";
 		MinMaxTempRow.appendChild(MaxTempDataCell);
 		table.appendChild(MinMaxTempRow);		
 		
 		var MinTempDataCell = document.createElement("td");
 		MinTempDataCell.className = "small mintempdatacell";
-		MinTempDataCell.innerHTML = this.config.showIcons == false ? "(Min) " + MWB.min_temp  + " ℃" : '<i class="wi wi-thermometer-exterior"></i>' + "&nbsp;" + MWB.d0tmin + " ℃";		
+		MinTempDataCell.innerHTML = this.config.showIcons == false ? "(Min) " + MWB.wk_verw.min_temp  + " ℃" : '<i class="wi wi-thermometer-exterior"></i>' + "&nbsp;" + MWB.d0tmin + " ℃";		
 		MinMaxTempRow.appendChild(MinTempDataCell);
 		table.appendChild(MinMaxTempRow);	
 		
