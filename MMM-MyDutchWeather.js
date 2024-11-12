@@ -120,7 +120,7 @@ Module.register('MMM-MyDutchWeather', {
 		
 			var NeerslagTextCell = document.createElement("td");
 			NeerslagTextCell.className = "small neerslagtextcell";
-			NeerslagTextCell.innerHTML = this.config.showIcons == false ? "Neerslagkans" : '<i class="wi wi-umbrella"></i>';	
+			NeerslagTextCell.innerHTML = this.config.showIcons == false ? this.translate("RAINFALL") : '<i class="wi wi-umbrella"></i>';	
 			NeerslagRow.appendChild(NeerslagTextCell);
 			table.appendChild(NeerslagRow);
 
