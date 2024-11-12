@@ -72,7 +72,8 @@ Module.register('MMM-MyDutchWeather', {
         	}	
 
 		var MWB = this.MWB;
-		var LW = this.MWB.liveweer['0']
+		var WL = this.MWB.liveweer['0'];
+		var WW = this.MWB.wk_verw['0']
 
 		// creating the tablerows
 		var WoonplaatsRow = document.createElement("tr");
@@ -80,29 +81,28 @@ Module.register('MMM-MyDutchWeather', {
 		
 		var WoonplaatsTextCell = document.createElement("td");
 		WoonplaatsTextCell.className = "normal woonplaatstextcell";
-		WoonplaatsTextCell.innerHTML = LW.plaats; 
+		WoonplaatsTextCell.innerHTML = WL.plaats; 
 		WoonplaatsRow.appendChild(WoonplaatsTextCell);	
 		table.appendChild(WoonplaatsRow);
 		
 		var TempTextCell = document.createElement("td");
 		TempTextCell.className = "normal temptextcell";
-		TempTextCell.innerHTML = LW.temp + " ℃";
+		TempTextCell.innerHTML = WL.temp + " ℃";
 		WoonplaatsRow.appendChild(TempTextCell);
 		table.appendChild(WoonplaatsRow);
 
-/*
 		var MinMaxTempRow = document.createElement("tr");
 		MinMaxTempRow.className = "minmaxtemp-row";		
 
 		var MaxTempDataCell = document.createElement("td");
 		MaxTempDataCell.className = "small maxtempdatacell";
-		MaxTempDataCell.innerHTML = this.config.showIcons == false ? "(Max) " + MWB.d0tmax  + " ℃" : '<i class="wi wi-thermometer"></i>' + "&nbsp;" + MWB.d0tmax + " ℃";
+		MaxTempDataCell.innerHTML = this.config.showIcons == false ? "(Max) " + WW.max_temp  + " ℃" : '<i class="wi wi-thermometer"></i>' + "&nbsp;" + WW.max_temp + " ℃";
 		MinMaxTempRow.appendChild(MaxTempDataCell);
 		table.appendChild(MinMaxTempRow);		
 		
 		var MinTempDataCell = document.createElement("td");
 		MinTempDataCell.className = "small mintempdatacell";
-		MinTempDataCell.innerHTML = this.config.showIcons == false ? "(Min) " + MWB.d0tmin  + " ℃" : '<i class="wi wi-thermometer-exterior"></i>' + "&nbsp;" + MWB.d0tmin + " ℃";		
+		MinTempDataCell.innerHTML = this.config.showIcons == false ? "(Min) " + WW.min_temp  + " ℃" : '<i class="wi wi-thermometer-exterior"></i>' + "&nbsp;" + WW.min_temp + " ℃";		
 		MinMaxTempRow.appendChild(MinTempDataCell);
 		table.appendChild(MinMaxTempRow);	
 		
@@ -111,10 +111,10 @@ Module.register('MMM-MyDutchWeather', {
 		
 		var HuidigCell = document.createElement("td");
 		HuidigCell.className = "small huidigcell";
-		HuidigCell.innerHTML = MWB.samenv;
+		HuidigCell.innerHTML = WL.samenv;
 		HuidigRow.appendChild(HuidigCell);
 		table.appendChild(HuidigRow);		
-*/		
+		
 		if (this.config.showExtra != false) {
 			var spacer = document.createElement("span");
 			spacer.innerHTML = "&nbsp;";
