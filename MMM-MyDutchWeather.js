@@ -31,6 +31,14 @@ Module.register('MMM-MyDutchWeather', {
 	getScripts: function () {
 		return ["moment.js"];
 	},
+
+	// Define required translations.
+  	getTranslations: function () {
+    		return {
+      		en: "translations/en.json",
+      		nl: "translations/nl.json"
+    		}
+  	},
 	
 	start: function () {
 		Log.info("Starting module: " + this.name);
