@@ -267,7 +267,7 @@ Module.register('MMM-MyDutchWeather', {
 		
 	// this processes your data
 	processMWB: function(data) { 
-		this.MWB = data; 
+		this.MWB = JSON.stringify(data); 
 		console.log(this.MWB); // uncomment to see if you're getting data (in dev console)
 		this.loaded = true;
 	},
