@@ -1,8 +1,10 @@
 /*
 //-------------------------------------------
 MMM-MyDutchWeather
-Copyright (C) 2019 - H. Tilburgs
+Copyright (C) 2024 - H. Tilburgs
 MIT License
+
+v2.0.0	: New release
 //-------------------------------------------
 */
 
@@ -46,8 +48,8 @@ Module.register('MMM-MyDutchWeather', {
 		requiresVersion: "2.1.0",	
 			
 		// Set locales
-		this.url = "https://weerlive.nl/api/json-data-10min.php?key=" + this.config.apiKey + "&locatie=" + this.config.latitude + "," + this.config.longitude;	
-		//this.url = "https://weerlive.nl/api/weerlive_api_v2.php?key" + this.config.apiKey + "&locatie" + this.config.latitude + "," + this.config.longitude;
+		//this.url = "https://weerlive.nl/api/json-data-10min.php?key=" + this.config.apiKey + "&locatie=" + this.config.latitude + "," + this.config.longitude;	
+		this.url = "https://weerlive.nl/api/weerlive_api_v2.php?key" + this.config.apiKey + "&locatie" + this.config.latitude + "," + this.config.longitude;
 		this.MWB = [];			// <-- Create empty MWB array
 		this.scheduleUpdate();       	// <-- When the module updates (see below)
 	},
@@ -93,13 +95,13 @@ Module.register('MMM-MyDutchWeather', {
 
 		var MaxTempDataCell = document.createElement("td");
 		MaxTempDataCell.className = "small maxtempdatacell";
-		MaxTempDataCell.innerHTML = this.config.showIcons == false ? "(Max) " + MWB.d0tmax  + " ℃" : '<i class="wi wi-thermometer"></i>' + "&nbsp;" + MWB.d0tmax + " ℃";
+		MaxTempDataCell.innerHTML = this.config.showIcons == false ? "(Max) " + MWB.max_temp  + " ℃" : '<i class="wi wi-thermometer"></i>' + "&nbsp;" + MWB.max_temp + " ℃";
 		MinMaxTempRow.appendChild(MaxTempDataCell);
 		table.appendChild(MinMaxTempRow);		
 		
 		var MinTempDataCell = document.createElement("td");
 		MinTempDataCell.className = "small mintempdatacell";
-		MinTempDataCell.innerHTML = this.config.showIcons == false ? "(Min) " + MWB.d0tmin  + " ℃" : '<i class="wi wi-thermometer-exterior"></i>' + "&nbsp;" + MWB.d0tmin + " ℃";		
+		MinTempDataCell.innerHTML = this.config.showIcons == false ? "(Min) " + MWB.min_temp  + " ℃" : '<i class="wi wi-thermometer-exterior"></i>' + "&nbsp;" + MWB.min_temp + " ℃";		
 		MinMaxTempRow.appendChild(MinTempDataCell);
 		table.appendChild(MinMaxTempRow);	
 		
