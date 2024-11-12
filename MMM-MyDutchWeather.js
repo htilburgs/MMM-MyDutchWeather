@@ -57,7 +57,7 @@ Module.register('MMM-MyDutchWeather', {
 	getDom: function () {
 		
 		// creating the table
-		var table = document.cre//ateElement("table");
+		var table = document.createElement("table");
 		table.style.maxWidth = this.config.maxWidth;
 		
 		// creating the wrapper
