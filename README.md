@@ -1,8 +1,12 @@
-# MMM-MyDutchWeather v2.0.0
+# MMM-MyDutchWeather
 This a module for [Magic Mirror²](https://github.com/MichMich/MagicMirror) smart mirror project.</br>
 This modules is ONLY for use in the Netherlands and it presents the actual weather information for your dutch city from the KNMI directly from the 10-minutes network.
 
-To use this module, an API Key is required. This API Key [you can get here](https://weerlive.nl/api/toegang/account.php) for free. </br> The key and the use of the key is FREE and as-is. The number of data-requests is limited to 300 requests per day. 
+To use this module, an API Key is required. This API Key [you can get here](https://weerlive.nl/delen.php#tab1) for free. </br> The key and the use of the key is FREE and as-is. The number of data-requests is limited to 300 requests per day. 
+
+![Screenshot](screenshot01.png) <br />
+![Screenshot](screenshot02.png) <br />
+![Screenshot](screenshot03.png)
 
 ## Installation
 Clone this repository in your modules folder, and install dependencies:
@@ -59,9 +63,9 @@ Here is the documentation of options for the modules configuration
 | `maxWidth`		| The maximum width of the module <br /><br />Default: `500px`
 
 ## Version
- - 01-07-2024	: update node_helper.js from request (deprecated) to fetch
+v1.2 - 01-07-2024	: update node_helper.js from request (deprecated) to fetch
 
-v2.1 - 12-11-2024	: language support
+v1.3 - 12-11-2024	: language support
 
 ## License
 ### The MIT License (MIT)
