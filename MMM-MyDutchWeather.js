@@ -79,16 +79,17 @@ Module.register('MMM-MyDutchWeather', {
 		
 		var WoonplaatsTextCell = document.createElement("td");
 		WoonplaatsTextCell.className = "normal woonplaatstextcell";
-		WoonplaatsTextCell.innerHTML = MWB.plaats; 
+		WoonplaatsTextCell.innerHTML = MWB.liveweer.plaats; 
 		WoonplaatsRow.appendChild(WoonplaatsTextCell);
 		table.appendChild(WoonplaatsRow);
 		
 		var TempTextCell = document.createElement("td");
 		TempTextCell.className = "normal temptextcell";
-		TempTextCell.innerHTML = MWB.temp + " ℃";
+		TempTextCell.innerHTML = MWB.liveweer.temp + " ℃";
 		WoonplaatsRow.appendChild(TempTextCell);
 		table.appendChild(WoonplaatsRow);
-		
+
+/*
 		var MinMaxTempRow = document.createElement("tr");
 		MinMaxTempRow.className = "minmaxtemp-row";		
 
@@ -112,7 +113,7 @@ Module.register('MMM-MyDutchWeather', {
 		HuidigCell.innerHTML = MWB.samenv;
 		HuidigRow.appendChild(HuidigCell);
 		table.appendChild(HuidigRow);		
-		
+*/		
 		if (this.config.showExtra != false) {
 			var spacer = document.createElement("span");
 			spacer.innerHTML = "&nbsp;";
