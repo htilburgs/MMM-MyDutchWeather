@@ -31,8 +31,9 @@ getMWB: function(url) {
 
           .then(result => {
             // Process the retrieved user data
-            console.log(result); 
-            this.sendSocketNotification('MWB_RESULT', result);
+            const MyJSON = JSON.stringify(result);
+            console.log(MyJSON); 
+            this.sendSocketNotification('MWB_RESULT', MyJSON);
           })
 
           .catch(error => {
