@@ -1,11 +1,11 @@
 {
-    "RAINFALL-CHANCE": "Neerslagkans",
-    "SUN-CHANCE": "Zonkans",
-    "WIND-DIR": "Windrichting",
-    "WIND-FORCE": "Windkracht",
-    "AIR-PRESS": "Luchtdruk",
-    "VISIBILITY": "Zicht",
-    "AIR-MOIST": "Luchtvochtigheid",
-    "SUNUP": "Zonopkomst",
-    "SUNDOWN": "Zonsondergang"
+    "RAINFALL-CHANCE": "Rainfall Probability",
+    "SUN-CHANCE": "Sun Prohability",
+    "WIND-DIR": "Wind Direction",
+    "WIND-FORCE": "Wind Force",
+    "AIR-PRESS": "Air Pressure",
+    "VISIBILITY": "Visibility",
+    "AIR-MOIST": "Air Humidity",
+    "SUNUP": "Sunrise",
+    "SUNDOWN": "Sunset"
 }
