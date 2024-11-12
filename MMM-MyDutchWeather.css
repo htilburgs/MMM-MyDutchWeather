@@ -116,8 +116,7 @@ Pick your color, copy and paste the HEX number. Example - #62FF00 = bright green
 }
 
 .footer {
-     font-size: 12px;
-     width: 100%
+     font-size: 11px;
      line-height: 16px;
-     text-align: right !important;
+     text-align: left !important;
 }
