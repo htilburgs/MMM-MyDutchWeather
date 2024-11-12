@@ -71,6 +71,7 @@ Module.register('MMM-MyDutchWeather', {
         	}	
 
 		var MWB = this.MWB;
+		for (var w of this.liveweer) {
 
 		// creating the tablerows
 		var WoonplaatsRow = document.createElement("tr");
@@ -78,15 +79,16 @@ Module.register('MMM-MyDutchWeather', {
 		
 		var WoonplaatsTextCell = document.createElement("td");
 		WoonplaatsTextCell.className = "normal woonplaatstextcell";
-		WoonplaatsTextCell.innerHTML = MWB.liveweer[plaats]; 
+		WoonplaatsTextCell.innerHTML = w.plaats; 
 		WoonplaatsRow.appendChild(WoonplaatsTextCell);
 		table.appendChild(WoonplaatsRow);
 		
 		var TempTextCell = document.createElement("td");
 		TempTextCell.className = "normal temptextcell";
-		TempTextCell.innerHTML = MWB.liveweer[temp] + " ℃";
+		TempTextCell.innerHTML = w.temp + " ℃";
 		WoonplaatsRow.appendChild(TempTextCell);
 		table.appendChild(WoonplaatsRow);
+		}
 /*	
 		var MinMaxTempRow = document.createElement("tr");
 		MinMaxTempRow.className = "minmaxtemp-row";		
@@ -266,6 +268,10 @@ Module.register('MMM-MyDutchWeather', {
 	// this processes your data
 	processMWB: function(data) { 
 		this.MWB = data; 
+		this.liveweather=[]
+    		this.dailyweather=[]
+    		this.hourlyweather=[]
+		
 		console.log(this.MWB); // uncomment to see if you're getting data (in dev console)
 		this.loaded = true;
 	},
