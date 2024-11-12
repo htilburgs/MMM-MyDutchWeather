@@ -86,7 +86,16 @@ Module.register('MMM-MyDutchWeather', {
 		WoonplaatsRow.appendChild(WoonplaatsTextCell);	
 		table.appendChild(WoonplaatsRow);
 		
-		var TempTextCell = document.createElement("td");
+		var WoonplaatsImageCell = document.createElement("td");
+		TempImageCell.className = "normal tempimagecell";
+		TempImageCell.innerHTML = WL.image;
+		WoonplaatsRow.appendChild(TempImageCell);
+		table.appendChild(WoonplaatsRow);
+
+		var WoonplaatsRow = document.createElement("tr");
+		WoonplaatsRow.className = "Temp-row";
+
+		var WoonplaatsTempCell = document.createElement("td");
 		TempTextCell.className = "normal temptextcell";
 		TempTextCell.innerHTML = WL.temp + " ℃";
 		WoonplaatsRow.appendChild(TempTextCell);
