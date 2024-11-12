@@ -31,8 +31,8 @@ getMWB: function(url) {
 
           .then(result => {
             // Process the retrieved user data
-            console.log(result); 
-            this.sendSocketNotification('MWB_RESULT', result);
+            console.log(result.liveweer['0']); 
+            this.sendSocketNotification('MWB_RESULT', result.liveweer['0']);
           })
 
           .catch(error => {
