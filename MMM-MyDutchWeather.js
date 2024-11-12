@@ -4,7 +4,7 @@ MMM-MyDutchWeather
 Copyright (C) 2024 - H. Tilburgs
 MIT License
 
-v2.0.0
+v2.0.0 - 12-11-2024 - API 2.0
 //-------------------------------------------
 */
 
