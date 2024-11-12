@@ -35,7 +35,6 @@ Module.register('MMM-MyDutchWeather', {
 	// Define required translations.
   	getTranslations: function () {
     		return {
-      		en: "translations/en.json",
       		nl: "translations/nl.json"
     		}
   	},
