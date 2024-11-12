@@ -31,9 +31,9 @@ getMWB: function(url) {
 
           .then(result => {
             // Process the retrieved user data
-            console.log(result.liveweer); // Remove trailing slashes to display data in Console for testing
-            // console.log(result.wk_verw['0']);
-            this.sendSocketNotification('MWB_RESULT', result.liveweer);
+            console.log(result.liveweer['0']); // Remove trailing slashes to display data in Console for testing
+            console.log(result.wk_verw['0']);
+            this.sendSocketNotification('MWB_RESULT', result.liveweer['0']);
           })
 
           .catch(error => {
