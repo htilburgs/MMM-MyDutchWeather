@@ -120,7 +120,7 @@ Module.register('MMM-MyDutchWeather', {
 		
 			var NeerslagTextCell = document.createElement("td");
 			NeerslagTextCell.className = "small neerslagtextcell";
-			NeerslagTextCell.innerHTML = this.config.showIcons == false ? this.translate("RAINFALL") : '<i class="wi wi-umbrella"></i>';	
+			NeerslagTextCell.innerHTML = this.config.showIcons == false ? this.translate("RAINFALL-CHANCE") : '<i class="wi wi-umbrella"></i>';	
 			NeerslagRow.appendChild(NeerslagTextCell);
 			table.appendChild(NeerslagRow);
 
@@ -135,7 +135,7 @@ Module.register('MMM-MyDutchWeather', {
 
 			var ZonTextCell = document.createElement("td");
 			ZonTextCell.className = "small zontextcell";
-			ZonTextCell.innerHTML = this.config.showIcons == false ? "Zonkans" : '<i class="wi wi-day-sunny"></i>';
+			ZonTextCell.innerHTML = this.config.showIcons == false ? this.translate("SUN-CHANCE") : '<i class="wi wi-day-sunny"></i>';
 			ZonRow.appendChild(ZonTextCell);
 			table.appendChild(ZonRow);
 
