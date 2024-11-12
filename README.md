@@ -63,9 +63,8 @@ Here is the documentation of options for the modules configuration
 | `maxWidth`		| The maximum width of the module <br /><br />Default: `500px`
 
 ## Version
-v1.2 - 01-07-2024	: update node_helper.js from request (deprecated) to fetch
-
-v1.3 - 12-11-2024	: language support
+v1.2.0 - 01-07-2024	: update node_helper.js from request (deprecated) to fetch </br>
+v1.3.0 - 12-11-2024	: language support
 
 ## License
 ### The MIT License (MIT)
