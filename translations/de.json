@@ -1,0 +1,11 @@
+{
+    "RAINFALL-CHANCE": "Niederschlagswahrscheinlichkeit",
+    "SUN-CHANCE": "Sonne Gelegenheit",
+    "WIND-DIR": "Windrichtung",
+    "WIND-FORCE": "Windkraft",
+    "AIR-PRESS": "Luftdruck",
+    "VISIBILITY": "Blick",
+    "AIR-MOIST": "Luftfeuchtigkeit",
+    "SUNUP": "Sonnenaufgang",
+    "SUNDOWN": "Sonnenuntergang"
+}

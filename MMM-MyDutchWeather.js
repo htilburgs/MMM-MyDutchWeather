@@ -31,6 +31,15 @@ Module.register('MMM-MyDutchWeather', {
 	getScripts: function () {
 		return ["moment.js"];
 	},
+
+	// Define required translations.
+  	getTranslations: function () {
+    		return {
+      		nl: "translations/nl.json",
+		en: "translations/en.json",
+		de: "translations/de.json"
+    		}
+  	},
 	
 	start: function () {
 		Log.info("Starting module: " + this.name);
@@ -38,6 +47,7 @@ Module.register('MMM-MyDutchWeather', {
 			
 		// Set locales
 		this.url = "https://weerlive.nl/api/json-data-10min.php?key=" + this.config.apiKey + "&locatie=" + this.config.latitude + "," + this.config.longitude;	
+		//this.url = "https://weerlive.nl/api/weerlive_api_v2.php?key" + this.config.apiKey + "&locatie" + this.config.latitude + "," + this.config.longitude;
 		this.MWB = [];			// <-- Create empty MWB array
 		this.scheduleUpdate();       	// <-- When the module updates (see below)
 	},
@@ -112,7 +122,7 @@ Module.register('MMM-MyDutchWeather', {
 		
 			var NeerslagTextCell = document.createElement("td");
 			NeerslagTextCell.className = "small neerslagtextcell";
-			NeerslagTextCell.innerHTML = this.config.showIcons == false ? "Neerslagkans" : '<i class="wi wi-umbrella"></i>';	
+			NeerslagTextCell.innerHTML = this.config.showIcons == false ? this.translate("RAINFALL-CHANCE") : '<i class="wi wi-umbrella"></i>';	
 			NeerslagRow.appendChild(NeerslagTextCell);
 			table.appendChild(NeerslagRow);
 
@@ -127,7 +137,7 @@ Module.register('MMM-MyDutchWeather', {
 
 			var ZonTextCell = document.createElement("td");
 			ZonTextCell.className = "small zontextcell";
-			ZonTextCell.innerHTML = this.config.showIcons == false ? "Zonkans" : '<i class="wi wi-day-sunny"></i>';
+			ZonTextCell.innerHTML = this.config.showIcons == false ? this.translate("SUN-CHANCE") : '<i class="wi wi-day-sunny"></i>';
 			ZonRow.appendChild(ZonTextCell);
 			table.appendChild(ZonRow);
 
@@ -142,7 +152,7 @@ Module.register('MMM-MyDutchWeather', {
 
 			var WindrTextCell = document.createElement("td");
 			WindrTextCell.className = "small windrtextcell";
-			WindrTextCell.innerHTML = this.config.showIcons == false ? "Windrichting" : '<i class="wi wi-wind-direction"></i>';
+			WindrTextCell.innerHTML = this.config.showIcons == false ? this.translate ("WIND-DIR") : '<i class="wi wi-wind-direction"></i>';
 			WindrichtingRow.appendChild(WindrTextCell);
 			table.appendChild(WindrichtingRow);
 
@@ -157,7 +167,7 @@ Module.register('MMM-MyDutchWeather', {
 
 			var WindsTextCell = document.createElement("td");
 			WindsTextCell.className = "small windstextcell";
-			WindsTextCell.innerHTML = this.config.showIcons == false ? "Windkracht" : '<i class="wi wi-strong-wind"></i>';
+			WindsTextCell.innerHTML = this.config.showIcons == false ? this.translate ("WIND-FORCE") : '<i class="wi wi-strong-wind"></i>';
 			WindkrachtRow.appendChild(WindsTextCell);
 			table.appendChild(WindkrachtRow);
 
@@ -172,7 +182,7 @@ Module.register('MMM-MyDutchWeather', {
 
 			var LuchtdTextCell = document.createElement("td");
 			LuchtdTextCell.className = "small luchtdtextcell";
-			LuchtdTextCell.innerHTML = this.config.showIcons == false ? "Luchtdruk" : '<i class="wi wi-barometer"></i>';
+			LuchtdTextCell.innerHTML = this.config.showIcons == false ? this.translate ("AIR-PRESS") : '<i class="wi wi-barometer"></i>';
 			LuchtdrukRow.appendChild(LuchtdTextCell);
 			table.appendChild(LuchtdrukRow);
 
@@ -187,7 +197,7 @@ Module.register('MMM-MyDutchWeather', {
 
 			var ZichtTextCell = document.createElement("td");
 			ZichtTextCell.className = "small zichttextcell";
-			ZichtTextCell.innerHTML = this.config.showIcons == false ? "Zicht" : '<i class="far fa-eye"></i>';
+			ZichtTextCell.innerHTML = this.config.showIcons == false ? this.translate ("VISIBILITY") : '<i class="far fa-eye"></i>';
 			ZichtRow.appendChild(ZichtTextCell);
 			table.appendChild(ZichtRow);
 
@@ -202,7 +212,7 @@ Module.register('MMM-MyDutchWeather', {
 
 			var LuchtvTextCell = document.createElement("td");
 			LuchtvTextCell.className = "small luchtvtextcell";
-			LuchtvTextCell.innerHTML = this.config.showIcons == false ? "Luchtvochtigheid" : '<i class="wi wi-humidity"></i>';
+			LuchtvTextCell.innerHTML = this.config.showIcons == false ? this.translate ("AIR-MOIST") : '<i class="wi wi-humidity"></i>';
 			LuchtvochtigheidRow.appendChild(LuchtvTextCell);
 			table.appendChild(LuchtvochtigheidRow);
 
@@ -217,7 +227,7 @@ Module.register('MMM-MyDutchWeather', {
 
 			var ZonopTextCell = document.createElement("td");
 			ZonopTextCell.className = "small zonoptextcell";
-			ZonopTextCell.innerHTML = this.config.showIcons == false ? "Zonopkomst" : '<i class="wi wi-sunrise"></i>';
+			ZonopTextCell.innerHTML = this.config.showIcons == false ? this.translate ("SUNUP") : '<i class="wi wi-sunrise"></i>';
 			ZonopRow.appendChild(ZonopTextCell);
 			table.appendChild(ZonopRow);
 
@@ -232,7 +242,7 @@ Module.register('MMM-MyDutchWeather', {
 
 			var ZonOnderTextCell = document.createElement("td");
 			ZonOnderTextCell.className = "small zondertextcell";
-			ZonOnderTextCell.innerHTML = this.config.showIcons == false ? "Zonsondergang" : '<i class="wi wi-sunset"></i>';
+			ZonOnderTextCell.innerHTML = this.config.showIcons == false ? this.translate ("SUNDOWN") : '<i class="wi wi-sunset"></i>';
 			ZonOnderRow.appendChild(ZonOnderTextCell);
 			table.appendChild(ZonOnderRow);
 
