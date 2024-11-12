@@ -10,7 +10,6 @@ Module.register('MMM-MyDutchWeather', {
 
 	// Default values
 	defaults: {
-		city: null,					// Use city or Lat-Lon
 		latitude: null,					// Latitude of your city
 		longitude: null,				// Longitude of your city
 		apiKey: null,					// API Key - Get for free at http://weerlive.nl/api/toegang/index.php
