@@ -1,12 +1,11 @@
 /*
 //-------------------------------------------
 MMM-MyDutchWeather
-Copyright (C) 2024 - H. Tilburgs
+Copyright (C) 2019 - H. Tilburgs
 MIT License
 
-v2.0.0 : New version
-  - New look and feel
-  - API 2.0 support weerlive.nl
+v1.0.0 : Initial version
+v1.2.0 : Update request to fetch (request package has been deprecated)
 
 //-------------------------------------------
 */
@@ -31,7 +30,7 @@ getMWB: function(url) {
 
           .then(result => {
             // Process the retrieved user data
-            console.log(result.liveweer['0']); 
+            console.log(result.liveweer['0']); // Remove trailing slashes to display data in Console for testing
             this.sendSocketNotification('MWB_RESULT', result.liveweer['0']);
           })
 
