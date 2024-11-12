@@ -10,6 +10,7 @@ Module.register('MMM-MyDutchWeather', {
 
 	// Default values
 	defaults: {
+		city: null,					// Use city or Lat-Lon
 		latitude: null,					// Latitude of your city
 		longitude: null,				// Longitude of your city
 		apiKey: null,					// API Key - Get for free at http://weerlive.nl/api/toegang/index.php
@@ -47,7 +48,8 @@ Module.register('MMM-MyDutchWeather', {
 			
 		// Set locales
 		// this.url = "https://weerlive.nl/api/json-data-10min.php?key=" + this.config.apiKey + "&locatie=" + this.config.latitude + "," + this.config.longitude;	
-		this.url = "https://weerlive.nl/api/weerlive_api_v2.php?key" + this.config.apiKey + "&locatie" + this.config.latitude + "," + this.config.longitude;
+		this.url = "https://weerlive.nl/api/weerlive_api_v2.php?key=" + this.config.apiKey + "&locatie=" + this.config.latitude + "," + this.config.longitude;
+		//this.url = "https://weerlive.nl/api/weelive_api_v2.php?key" + this.config.apikey + "&locatie=" + this.config.city;
 		this.MWB = [];			// <-- Create empty MWB array
 		this.scheduleUpdate();       	// <-- When the module updates (see below)
 	},
