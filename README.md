@@ -64,6 +64,7 @@ Here is the documentation of options for the modules configuration
 
 ## Version
 v2.0 - 01-07-2024	: update node_helper.js from request (deprecated) to fetch
+
 v2.1 - 12-11-2024	: language support
 
 ## License
