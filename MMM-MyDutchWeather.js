@@ -1,8 +1,10 @@
 /*
 //-------------------------------------------
 MMM-MyDutchWeather
-Copyright (C) 2019 - H. Tilburgs
+Copyright (C) 2024 - H. Tilburgs
 MIT License
+
+v2.0.0
 //-------------------------------------------
 */
 
@@ -86,20 +88,19 @@ Module.register('MMM-MyDutchWeather', {
 		TempTextCell.innerHTML = MWB.temp + " ℃";
 		WoonplaatsRow.appendChild(TempTextCell);
 		table.appendChild(WoonplaatsRow);
-		}
-/*	
+		
 		var MinMaxTempRow = document.createElement("tr");
-		MinMaxTempRow.className = "minmaxtemp-row";	
+		MinMaxTempRow.className = "minmaxtemp-row";		
 
 		var MaxTempDataCell = document.createElement("td");
 		MaxTempDataCell.className = "small maxtempdatacell";
-		MaxTempDataCell.innerHTML = this.config.showIcons == false ? "(Max) " + MWB.wk_verw.max_temp  + " ℃" : '<i class="wi wi-thermometer"></i>' + "&nbsp;" + MWB.d0tmax + " ℃";
+		MaxTempDataCell.innerHTML = this.config.showIcons == false ? "(Max) " + MWB.d0tmax  + " ℃" : '<i class="wi wi-thermometer"></i>' + "&nbsp;" + MWB.d0tmax + " ℃";
 		MinMaxTempRow.appendChild(MaxTempDataCell);
 		table.appendChild(MinMaxTempRow);		
 		
 		var MinTempDataCell = document.createElement("td");
 		MinTempDataCell.className = "small mintempdatacell";
-		MinTempDataCell.innerHTML = this.config.showIcons == false ? "(Min) " + MWB.wk_verw.min_temp  + " ℃" : '<i class="wi wi-thermometer-exterior"></i>' + "&nbsp;" + MWB.d0tmin + " ℃";		
+		MinTempDataCell.innerHTML = this.config.showIcons == false ? "(Min) " + MWB.d0tmin  + " ℃" : '<i class="wi wi-thermometer-exterior"></i>' + "&nbsp;" + MWB.d0tmin + " ℃";		
 		MinMaxTempRow.appendChild(MinTempDataCell);
 		table.appendChild(MinMaxTempRow);	
 		
@@ -111,7 +112,7 @@ Module.register('MMM-MyDutchWeather', {
 		HuidigCell.innerHTML = MWB.samenv;
 		HuidigRow.appendChild(HuidigCell);
 		table.appendChild(HuidigRow);		
-*/		
+		
 		if (this.config.showExtra != false) {
 			var spacer = document.createElement("span");
 			spacer.innerHTML = "&nbsp;";
@@ -267,8 +268,6 @@ Module.register('MMM-MyDutchWeather', {
 	processMWB: function(data) { 
 		this.MWB = data; 
 		console.log(this.MWB); // uncomment to see if you're getting data (in dev console)
-		console.log(this.MWB.liveweer);
-		console.log(this.MWB.wk_verw);
 		this.loaded = true;
 	},
 	
