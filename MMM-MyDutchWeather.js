@@ -73,7 +73,8 @@ Module.register('MMM-MyDutchWeather', {
 
 		var MWB = this.MWB;
 		var WL = this.MWB.liveweer['0'];
-		var WW = this.MWB.wk_verw['0']
+		var WW = this.MWB.wk_verw['0'];
+		var API = this.MWB.api['0']
 
 		// creating the tablerows
 		var WoonplaatsRow = document.createElement("tr");
@@ -259,7 +260,7 @@ Module.register('MMM-MyDutchWeather', {
 
 		var FooterRow = document.createElement("tr");
 		FooterRow.className = "footer";
-		FooterRow.innerHTML = "KNMI Weergegevens via Weerlive.nl";
+		FooterRow.innerHTML = API.bron;
 		table.appendChild(FooterRow);
 			
 		return table;		
@@ -270,7 +271,6 @@ Module.register('MMM-MyDutchWeather', {
 	processMWB: function(data) { 
 		this.MWB = data; 
 		console.log(this.MWB); // uncomment to see if you're getting data (in dev console)
-		console.log(this.MWB.liveweer['0']);
 		this.loaded = true;
 	},
 	
