@@ -279,7 +279,11 @@ Module.register('MMM-MyDutchWeather', {
 	// this processes your data
 	processMWB: function(data) { 
 		this.MWB = data; 
-		console.log(this.MWB); // uncomment to see if you're getting data (in dev console)
+		this.lw = [];		// Array data liveweer 	- Live Weather
+		this.hw = [];		// Array data uur_verw	- Hourly Weather
+		this.ww = []		// Array data wk_verw	- Weekly Weather
+
+		// console.log(this.MWB); // uncomment to see if you're getting data (in dev console)
 		this.loaded = true;
 	},
 	
