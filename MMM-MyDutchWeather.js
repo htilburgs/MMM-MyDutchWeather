@@ -72,13 +72,19 @@ Module.register('MMM-MyDutchWeather', {
         	}	
 
 		var MWB = this.MWB;
-		let WL = payload.liveweer[0];
-		console.log(JSON.stringify(WL)); 
-/*		var WL = this.MWB.liveweer;
+//		let WL = payload.liveweer[0];
+//		console.log(JSON.stringify(WL)); 
+		
+		var WL = this.MWB.liveweer;
 		var WH = this.MWB.uur_verw;
 		var WW = this.MWB.wk_verw;
 		var API = this.MWB.api
-*/
+
+		console.log(JSON.stringify(WL));
+		console.log(JSON.stringify(WH));
+		console.log(JSON.stringify(WW));
+		console.log(JSON.stringify(API));
+
 		// creating the tablerows
 		var WoonplaatsRow = document.createElement("tr");
 		WoonplaatsRow.className = "woonplaats-row";
