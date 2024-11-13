@@ -89,7 +89,7 @@ Module.register('MMM-MyDutchWeather', {
 		
 		var WoonplaatsTextCell = document.createElement("td");
 		WoonplaatsTextCell.className = "normal woonplaatstextcell";
-		WoonplaatsTextCell.innerHTML = WL[0].plaats; 
+		WoonplaatsTextCell.innerHTML = MWB.liveweer[0].plaats; 
 		WoonplaatsRow.appendChild(WoonplaatsTextCell);	
 		table.appendChild(WoonplaatsRow);
 		
