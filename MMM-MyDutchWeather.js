@@ -77,6 +77,7 @@ Module.register('MMM-MyDutchWeather', {
 		var WW = this.MWB.wk_verw;
 		var API = this.MWB.api
 
+		console.log(JSON.stringify(MWB));
 		console.log(JSON.stringify(WL));
 		console.log(JSON.stringify(WH));
 		console.log(JSON.stringify(WW));
