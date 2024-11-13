@@ -93,9 +93,9 @@ Module.register('MMM-MyDutchWeather', {
 		table.appendChild(WoonplaatsRow);
 		
 		var WoonplaatsTempCell = document.createElement("td");
-		TempTextCell.className = "normal temptextcell";
-		TempTextCell.innerHTML = WL[0].temp + " ℃";
-		WoonplaatsRow.appendChild(TempTextCell);
+		WoonplaatsTempCell.className = "normal temptextcell";
+		WoonplaatsTempCell.innerHTML = WL[0].temp + " ℃";
+		WoonplaatsRow.appendChild(WoonplaatsTempCell);
 		table.appendChild(WoonplaatsRow);
 
 /*
