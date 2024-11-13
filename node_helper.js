@@ -28,7 +28,7 @@ getMWB: function(url) {
 
           .then(result => {
             // Process the retrieved user data
-            console.log(result); // Remove trailing slashes to display data in Console for testing
+            // console.log(result); // Remove trailing slashes to display data in Console for testing
             this.sendSocketNotification('MWB_RESULT', result);
           })
 
