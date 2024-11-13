@@ -119,7 +119,7 @@ Module.register('MMM-MyDutchWeather', {
 		HuidigCell.innerHTML = WL.samenv;
 		HuidigRow.appendChild(HuidigCell);
 		table.appendChild(HuidigRow);		
-*'/		
+*/		
 		if (this.config.showExtra != false) {
 			var spacer = document.createElement("span");
 			spacer.innerHTML = "&nbsp;";
