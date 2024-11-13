@@ -285,12 +285,21 @@ Module.register('MMM-MyDutchWeather', {
 		this.ww = [];		// Array data wk_verw	- Weekly Weather
 		this.api = []		// Array data api 	- API information
 
-		const lw = JSON.parse(data.liveweer);
+/*		const lw = JSON.parse(data.liveweer);
 		const hw = JSON.parse(data.hw_verw);
 		const ww = JSON.parse(data.uur_verw);
 		const api = JSON.parse(data.api);
-
-		console.log(api);
+*/
+		var lw = { lweer: [] };
+		data.map(function(item) {        
+   			lw.liveweer.push({ 
+        			"plaats" : item.plaats,
+        			"temp"  : item.temp,
+        			"verw" : item.verw 
+    			});
+		}
+		
+		console.log(this.lweer);
 		
 		// console.log(this.MWB); // uncomment to see if you're getting data (in dev console)
 		this.loaded = true;
