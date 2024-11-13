@@ -72,9 +72,6 @@ Module.register('MMM-MyDutchWeather', {
         	}	
 
 		var MWB = this.MWB;
-//		let WL = payload.liveweer[0];
-//		console.log(JSON.stringify(WL)); 
-		
 		var WL = this.MWB.liveweer;
 		var WH = this.MWB.uur_verw;
 		var WW = this.MWB.wk_verw;
@@ -91,13 +88,13 @@ Module.register('MMM-MyDutchWeather', {
 		
 		var WoonplaatsTextCell = document.createElement("td");
 		WoonplaatsTextCell.className = "normal woonplaatstextcell";
-		WoonplaatsTextCell.innerHTML = WL.plaats; 
+		WoonplaatsTextCell.innerHTML = this.WL.plaats; 
 		WoonplaatsRow.appendChild(WoonplaatsTextCell);	
 		table.appendChild(WoonplaatsRow);
 		
 		var WoonplaatsTempCell = document.createElement("td");
 		TempTextCell.className = "normal temptextcell";
-		TempTextCell.innerHTML = WL.temp + " ℃";
+		TempTextCell.innerHTML = this.WL.temp + " ℃";
 		WoonplaatsRow.appendChild(TempTextCell);
 		table.appendChild(WoonplaatsRow);
 
@@ -125,7 +122,7 @@ Module.register('MMM-MyDutchWeather', {
 		HuidigCell.innerHTML = WL.samenv;
 		HuidigRow.appendChild(HuidigCell);
 		table.appendChild(HuidigRow);		
-*/		
+		
 		if (this.config.showExtra != false) {
 			var spacer = document.createElement("span");
 			spacer.innerHTML = "&nbsp;";
@@ -267,7 +264,7 @@ Module.register('MMM-MyDutchWeather', {
 			table.appendChild(ZonOnderRow);			
 			
 		}
-
+*/
 		var FooterRow = document.createElement("tr");
 		FooterRow.className = "footer";
 		FooterRow.innerHTML = this.api.bron;
