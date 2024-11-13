@@ -267,7 +267,7 @@ Module.register('MMM-MyDutchWeather', {
 */
 		var FooterRow = document.createElement("tr");
 		FooterRow.className = "footer";
-		FooterRow.innerHTML = this.api.bron;
+		FooterRow.innerHTML = API[0].bron;
 		table.appendChild(FooterRow);
 			
 		return table;		
