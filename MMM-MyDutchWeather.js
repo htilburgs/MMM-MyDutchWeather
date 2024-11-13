@@ -72,17 +72,18 @@ Module.register('MMM-MyDutchWeather', {
         	}	
 
 		var MWB = this.MWB;
-		var WL = this.MWB.liveweer;
+/*		var WL = this.MWB.liveweer;
+		var WH = this.MWB.uur_verw;
 		var WW = this.MWB.wk_verw;
 		var API = this.MWB.api
-
+*/
 		// creating the tablerows
 		var WoonplaatsRow = document.createElement("tr");
 		WoonplaatsRow.className = "woonplaats-row";
 		
 		var WoonplaatsTextCell = document.createElement("td");
 		WoonplaatsTextCell.className = "normal woonplaatstextcell";
-		WoonplaatsTextCell.innerHTML = WL['0'].plaats; 
+		WoonplaatsTextCell.innerHTML = WL.plaats; 
 		WoonplaatsRow.appendChild(WoonplaatsTextCell);	
 		table.appendChild(WoonplaatsRow);
 		
@@ -97,7 +98,7 @@ Module.register('MMM-MyDutchWeather', {
 
 		var WoonplaatsTempCell = document.createElement("td");
 		TempTextCell.className = "normal temptextcell";
-		TempTextCell.innerHTML = WL['0'].temp + " ℃";
+		TempTextCell.innerHTML = WL.temp + " ℃";
 		WoonplaatsRow.appendChild(TempTextCell);
 		table.appendChild(WoonplaatsRow);
 
@@ -281,8 +282,16 @@ Module.register('MMM-MyDutchWeather', {
 		this.MWB = data; 
 		this.lw = [];		// Array data liveweer 	- Live Weather
 		this.hw = [];		// Array data uur_verw	- Hourly Weather
-		this.ww = []		// Array data wk_verw	- Weekly Weather
+		this.ww = [];		// Array data wk_verw	- Weekly Weather
+		this.api = []		// Array data api 	- API information
 
+		const lw = JSON.parse(data.liveweer);
+		const hw = JSON.parse(data.hw_verw);
+		const ww = JSON.parse(data.uur_verw);
+		const api = JSON.parse(data.api);
+
+		console.log(api);
+		
 		// console.log(this.MWB); // uncomment to see if you're getting data (in dev console)
 		this.loaded = true;
 	},
