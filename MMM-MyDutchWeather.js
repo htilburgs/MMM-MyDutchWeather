@@ -73,6 +73,7 @@ Module.register('MMM-MyDutchWeather', {
 
 		var MWB = this.MWB;
 		let WL = payload.liveweer[0];
+		
 /*		var WL = this.MWB.liveweer;
 		var WH = this.MWB.uur_verw;
 		var WW = this.MWB.wk_verw;
