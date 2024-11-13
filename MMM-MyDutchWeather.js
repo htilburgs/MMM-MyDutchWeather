@@ -72,9 +72,9 @@ Module.register('MMM-MyDutchWeather', {
         	}	
 
 		var MWB = this.MWB;
-		var WL = this.MWB.liveweer['0'];
-		var WW = this.MWB.wk_verw['0'];
-		var API = this.MWB.api['0']
+		var WL = this.MWB.liveweer;
+		var WW = this.MWB.wk_verw;
+		var API = this.MWB.api
 
 		// creating the tablerows
 		var WoonplaatsRow = document.createElement("tr");
