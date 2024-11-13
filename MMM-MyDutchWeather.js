@@ -98,13 +98,12 @@ Module.register('MMM-MyDutchWeather', {
 		WoonplaatsRow.appendChild(WoonplaatsTempCell);
 		table.appendChild(WoonplaatsRow);
 
-/*
 		var MinMaxTempRow = document.createElement("tr");
 		MinMaxTempRow.className = "minmaxtemp-row";		
 
 		var MaxTempDataCell = document.createElement("td");
 		MaxTempDataCell.className = "small maxtempdatacell";
-		MaxTempDataCell.innerHTML = this.config.showIcons == false ? "(Max) " + WW.max_temp  + " ℃" : '<i class="wi wi-thermometer"></i>' + "&nbsp;" + WW.max_temp + " ℃";
+		MaxTempDataCell.innerHTML = this.config.showIcons == false ? "(Max) " + WW[0].max_temp  + " ℃" : '<i class="wi wi-thermometer"></i>' + "&nbsp;" + WW[0].max_temp + " ℃";
 		MinMaxTempRow.appendChild(MaxTempDataCell);
 		table.appendChild(MinMaxTempRow);		
 		
@@ -122,7 +121,7 @@ Module.register('MMM-MyDutchWeather', {
 		HuidigCell.innerHTML = WL.samenv;
 		HuidigRow.appendChild(HuidigCell);
 		table.appendChild(HuidigRow);		
-		
+/*		
 		if (this.config.showExtra != false) {
 			var spacer = document.createElement("span");
 			spacer.innerHTML = "&nbsp;";
