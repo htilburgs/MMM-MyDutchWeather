@@ -72,6 +72,7 @@ Module.register('MMM-MyDutchWeather', {
         	}	
 
 		var MWB = this.MWB;
+		let WL = payload.liveweer[0];
 /*		var WL = this.MWB.liveweer;
 		var WH = this.MWB.uur_verw;
 		var WW = this.MWB.wk_verw;
@@ -83,25 +84,17 @@ Module.register('MMM-MyDutchWeather', {
 		
 		var WoonplaatsTextCell = document.createElement("td");
 		WoonplaatsTextCell.className = "normal woonplaatstextcell";
-		WoonplaatsTextCell.innerHTML = this.lw.plaats; 
+		WoonplaatsTextCell.innerHTML = this.WL.plaats; 
 		WoonplaatsRow.appendChild(WoonplaatsTextCell);	
 		table.appendChild(WoonplaatsRow);
 		
-		var WoonplaatsImageCell = document.createElement("td");
-		TempImageCell.className = "normal tempimagecell";
-		TempImageCell.innerHTML = this.lw.image;
-		WoonplaatsRow.appendChild(TempImageCell);
-		table.appendChild(WoonplaatsRow);
-
-		var WoonplaatsRow = document.createElement("tr");
-		WoonplaatsRow.className = "Temp-row";
-
 		var WoonplaatsTempCell = document.createElement("td");
 		TempTextCell.className = "normal temptextcell";
-		TempTextCell.innerHTML = this.lw.temp + " ℃";
+		TempTextCell.innerHTML = this.WL.temp + " ℃";
 		WoonplaatsRow.appendChild(TempTextCell);
 		table.appendChild(WoonplaatsRow);
 
+/*
 		var MinMaxTempRow = document.createElement("tr");
 		MinMaxTempRow.className = "minmaxtemp-row";		
 
@@ -125,7 +118,7 @@ Module.register('MMM-MyDutchWeather', {
 		HuidigCell.innerHTML = WL.samenv;
 		HuidigRow.appendChild(HuidigCell);
 		table.appendChild(HuidigRow);		
-		
+*'/		
 		if (this.config.showExtra != false) {
 			var spacer = document.createElement("span");
 			spacer.innerHTML = "&nbsp;";
@@ -280,16 +273,16 @@ Module.register('MMM-MyDutchWeather', {
 	// this processes your data
 	processMWB: function(data) { 
 		this.MWB = data; 
-		this.lw = [];		// Array data liveweer 	- Live Weather
-		this.hw = [];		// Array data uur_verw	- Hourly Weather
-		this.ww = [];		// Array data wk_verw	- Weekly Weather
-		this.api = []		// Array data api 	- API information
+//		this.lw = [];		// Array data liveweer 	- Live Weather
+//		this.hw = [];		// Array data uur_verw	- Hourly Weather
+//		this.ww = [];		// Array data wk_verw	- Weekly Weather
+//		this.api = []		// Array data api 	- API information
 
 /*		const lw = JSON.parse(data.liveweer);
 		const hw = JSON.parse(data.hw_verw);
 		const ww = JSON.parse(data.uur_verw);
 		const api = JSON.parse(data.api);
-*/
+  
 		var lw = { lweer: [] };
 		data.map(function(item) {        
    			lw.liveweer.push({ 
@@ -298,9 +291,7 @@ Module.register('MMM-MyDutchWeather', {
         			"verw" : item.verw 
     			});
 		}
-		
-		console.log(this.lweer);
-		
+*/		
 		// console.log(this.MWB); // uncomment to see if you're getting data (in dev console)
 		this.loaded = true;
 	},
