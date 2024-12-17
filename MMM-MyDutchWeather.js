@@ -116,12 +116,12 @@ Module.register('MMM-MyDutchWeather', {
                 { icon: "umbrella", text: "RAINFALL-CHANCE", value: `${WW[0].neersl_perc_dag} %` },
                 { icon: "day-sunny", text: "SUN-CHANCE", value: `${WW[0].zond_perc_dag} %` },
                 { icon: "wind-direction", text: "WIND-DIR", value: WW[0].windr },
-                { icon: "strong-wind", text: "WIND-FORCE", value: `${MWB.winds} Bft` },
-                { icon: "barometer", text: "AIR-PRESS", value: MWB.luchtd },
-                { icon: "far fa-eye", text: "VISIBILITY", value: `${MWB.zicht} KM` },
-                { icon: "humidity", text: "AIR-MOIST", value: `${MWB.lv} %` },
-                { icon: "sunrise", text: "SUNUP", value: MWB.sup },
-                { icon: "sunset", text: "SUNDOWN", value: MWB.sunder }
+                { icon: "strong-wind", text: "WIND-FORCE", value: `${WW[0]windbft} Bft` },
+                { icon: "barometer", text: "AIR-PRESS", value: WL[0].luchtd },
+                { icon: "far fa-eye", text: "VISIBILITY", value: `${WL[0].zicht} KM` },
+                { icon: "humidity", text: "AIR-MOIST", value: `${WL[0].lv} %` },
+                { icon: "sunrise", text: "SUNUP", value: WL[0].sup },
+                { icon: "sunset", text: "SUNDOWN", value: WL[0].sunder }
             ];
 
             extraInfo.forEach(info => {
