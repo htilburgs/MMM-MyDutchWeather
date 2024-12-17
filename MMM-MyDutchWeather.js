@@ -113,9 +113,9 @@ Module.register('MMM-MyDutchWeather', {
         // Add extra information if enabled
         if (this.config.showExtra) {
             const extraInfo = [
-                { icon: "umbrella", text: "RAINFALL-CHANCE", value: `${MWB.d0neerslag} %` },
-                { icon: "day-sunny", text: "SUN-CHANCE", value: `${MWB.d0zon} %` },
-                { icon: "wind-direction", text: "WIND-DIR", value: MWB.windr },
+                { icon: "umbrella", text: "RAINFALL-CHANCE", value: `${WW[0].neersl_perc_dag} %` },
+                { icon: "day-sunny", text: "SUN-CHANCE", value: `${WW[0].zond_perc_dag} %` },
+                { icon: "wind-direction", text: "WIND-DIR", value: WW[0].windr },
                 { icon: "strong-wind", text: "WIND-FORCE", value: `${MWB.winds} Bft` },
                 { icon: "barometer", text: "AIR-PRESS", value: MWB.luchtd },
                 { icon: "far fa-eye", text: "VISIBILITY", value: `${MWB.zicht} KM` },
