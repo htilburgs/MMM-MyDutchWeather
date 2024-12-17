@@ -1,48 +1,46 @@
 /*
-//-------------------------------------------
 MMM-MyDutchWeather
-Copyright (C) 2019 - H. Tilburgs
+Copyright (C) 2024 - H. Tilburgs
 MIT License
 
 v1.0.0 : Initial version
 v1.2.0 : Update request to fetch (request package has been deprecated)
+v2.0.0 - 12-11-2024 - API 2.0
 
 //-------------------------------------------
 */
 
-const NodeHelper = require('node_helper');
+const NodeHelper = require("node_helper");
 
 module.exports = NodeHelper.create({
-
-  start: function() {
-          console.log("Starting node_helper for: " + this.name);
+  start() {
+    console.log(`Starting node_helper for: ${this.name}`);
   },
 
-getMWB: function(url) {
-        // Make a GET request using the Fetch API
-        fetch(url)
-          .then(response => {
-            if (!response.ok) {
-              console.error('MMM-MyDutchWeather: Network response was not ok');
-            }
-            return response.json();
-          })
+  async getMWB(url) {
+    try {
+      // Maak een GET-aanroep naar de opgegeven URL
+      const response = await fetch(url);
 
-          .then(result => {
-            // Process the retrieved user data
-            console.log(result.liveweer['0']); // Remove trailing slashes to display data in Console for testing
-            this.sendSocketNotification('MWB_RESULT', result.liveweer['0']);
-          })
+      if (!response.ok) {
+        throw new Error(
+          `MMM-MyDutchWeather: Network response was not ok. Status: ${response.status} ${response.statusText}`
+        );
+      }
 
-          .catch(error => {
-            console.error('Error:', error);
-          });
+      const result = await response.json();
+
+      // Stuur de ontvangen gegevens naar de module
+      this.sendSocketNotification("MWB_RESULT", result);
+    } catch (error) {
+      console.error(`MMM-MyDutchWeather Error: ${error.message}`);
+    }
   },
 
-  socketNotificationReceived: function(notification, payload) {
-            if (notification === 'GET_MWB') {
-            this.getMWB(payload);
-            }
+  socketNotificationReceived(notification, payload) {
+    if (notification === "GET_MWB") {
+      // Start de API-aanroep met de payload (URL)
+      this.getMWB(payload);
+    }
   },
-
 });
