@@ -112,6 +112,11 @@ Module.register('MMM-MyDutchWeather', {
 
         // Add extra information if enabled
         if (this.config.showExtra) {
+            
+            	var spacer = document.createElement("span");
+				spacer.innerHTML = "&nbsp;";
+				table.appendChild(spacer);
+            
             const extraInfo = [
                 { icon: "umbrella", text: "RAINFALL-CHANCE", value: `${WW[0].neersl_perc_dag} %` },
                 { icon: "day-sunny", text: "SUN-CHANCE", value: `${WW[0].zond_perc_dag} %` },
