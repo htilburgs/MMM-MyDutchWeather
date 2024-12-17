@@ -118,7 +118,7 @@ Module.register('MMM-MyDutchWeather', {
                 { icon: "wind-direction", text: "WIND-DIR", value: WW[0].windr },
                 { icon: "strong-wind", text: "WIND-FORCE", value: `${WW[0].windkmh} Kmh` },
                 { icon: "barometer", text: "AIR-PRESS", value: WL[0].luchtd },
-                { icon: "far fa-eye", text: "VISIBILITY", value: `${WL[0].zicht} KM` },
+                { icon: "fa-solid fa-eye", text: "VISIBILITY", value: `${WL[0].zicht} KM` },
                 { icon: "humidity", text: "AIR-MOIST", value: `${WL[0].lv} %` },
                 { icon: "sunrise", text: "SUNUP", value: WL[0].sup },
                 { icon: "sunset", text: "SUNDOWN", value: WL[0].sunder }
