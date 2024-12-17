@@ -4,7 +4,7 @@
           "description": "MagicMirror 2 module to get real-time Dutch weather information from Weer API.",
           "repository": {
                     "type": "git",
-                    "url": "https://github.com/htilburgs/MMM-MyDutchWeather"
+                    "url": "git+https://github.com/htilburgs/MMM-MyDutchWeather"
           },
           "keywords": [
                     "magic mirror",
