@@ -33,7 +33,7 @@ Module.register('MMM-MyDutchWeather', {
         Log.info(`Starting module: ${this.name}`);
         this.requiresVersion = "2.1.0";
 
-        // ✅ Config validation
+        // Config validation
         if (!this.config.apiKey || !this.config.latitude || !this.config.longitude) {
             Log.error("MMM-MyDutchWeather: Missing apiKey, latitude or longitude!");
             this.error = "Missing configuration";
@@ -88,13 +88,13 @@ Module.register('MMM-MyDutchWeather', {
             return cell;
         };
 
-        // Location + temp
+        // Location + current temperature
         const row1 = createRow("woonplaats-row");
         row1.appendChild(createCell("normal woonplaatstextcell", current.plaats));
         row1.appendChild(createCell("normal temptextcell", `${current.temp} ℃`));
         table.appendChild(row1);
 
-        // Min / max
+        // Min / Max temperature
         const row2 = createRow("minmaxtemp-row");
         row2.appendChild(createCell(
             "small maxtempdatacell",
@@ -110,7 +110,7 @@ Module.register('MMM-MyDutchWeather', {
         ));
         table.appendChild(row2);
 
-        // Summary
+        // Current weather summary
         const row3 = createRow("huidig-row");
         row3.appendChild(createCell("small huidigcell", current.samenv));
         table.appendChild(row3);
@@ -118,7 +118,7 @@ Module.register('MMM-MyDutchWeather', {
         // Extra info
         if (this.config.showExtra) {
 
-            // ✅ valid spacer row
+            // Spacer row (valid HTML)
             const spacerRow = document.createElement("tr");
             spacerRow.innerHTML = "<td colspan='2'>&nbsp;</td>";
             table.appendChild(spacerRow);
@@ -148,9 +148,13 @@ Module.register('MMM-MyDutchWeather', {
             });
         }
 
-        // Footer
+        // Footer spanning 2 columns
         const footer = createRow("footer");
-        footer.appendChild(createCell("small", API[0].bron));
+        const footerCell = document.createElement("td");
+        footerCell.className = "footer-cell";
+        footerCell.colSpan = 2;
+        footerCell.innerHTML = API[0].bron;
+        footer.appendChild(footerCell);
         table.appendChild(footer);
 
         return table;
