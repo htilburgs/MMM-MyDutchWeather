@@ -1,124 +1,49 @@
-
-/*
-//-------------------------------------------
-MMM-MyDutchWeather - CSS
-Copyright (C) 2024 - H. Tilburgs
-MIT License
-
-v2.0.0 - 12-11-2024 - API 2.0
-//-------------------------------------------
-Copy and paste any or all of these css entries into your custom.css file inside your
-css folder. The functions are annotated to make things as easy as possible for you.
-Use any colors you want! Go to - "http://htmlcolorcodes.com/color-picker/"
-Pick your color, copy and paste the HEX number. Example - #62FF00 = bright green.
-*/
-
-.header {
-     color: white;               /* Header color. Default is white. */
-     text-align: left;           /* Align header text. (left, center, right) */
+.wrapper {
+    margin: 0 auto;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
-.woonplaats-row {
-     line-height: 25px;
+table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
 }
 
-.woonplaatstextcell {
-     color: white !important;               
-     text-align: left !important;       
+.woonplaats-row .temptextcell {
+    text-align: right;
 }
 
-.temptextcell { 
-     color: white !important;               
-     text-align: right !important;   
+.minmaxtemp-row td {
+    padding: 2px 4px;
 }
 
-.maxtempdatacell {
-     display: table-cell;
-     width: 50%;
-     font-size: 20px;
-     line-height: 2;
-     text-align: left !important;         
+.huidig-row .huidigcell {
+    padding-top: 4px;
+    font-weight: bold;
 }
 
-.mintempdatacell {
-     display: table-cell;
-     width: 50%;
-     font-size: 20px;
-     line-height: 2;
-     text-align: right !important;         
+td.small {
+    font-size: 0.8em;
+    padding: 2px 4px;
 }
 
-.huidigcell {
-     display: table-cell;
-     font-size: 20px;
-     text-align: left !important;       
+/* Extra info */
+td.small i {
+    margin-right: 4px;
 }
 
-.neerslagtextcell, .neerslagdatacell {
-     display: table-cell;
-     width: 50%;
-     font-size: 20px;
-     text-align: left !important;    
+/* Footer styling */
+.footer-cell {
+    text-align: center;
+    font-size: 0.65em;
+    opacity: 0.6;
+    padding-top: 6px;
+    letter-spacing: 0.5px;
+    color: #aaa;
+    transition: opacity 0.5s ease;
 }
 
-.zontextcell, .zondatacell {
-     display: table-cell;
-     width: 50%;
-     font-size: 20px;
-     text-align: left !important;
-}
-
-.windrtextcell, .windrdatacell {
-     display: table-cell;
-     width: 50%;
-     font-size: 20px;
-     text-align: left !important;
-}
-
-.windstextcell, .windsdatacell {
-     display: table-cell;
-     width: 50%;
-     font-size: 20px;
-     text-align: left !important;
-}
-
-.luchtdtextcell, .luchtddatacell {
-     display: table-cell;
-     width: 50%;
-     font-size: 20px;
-     text-align: left !important;
-}
-
-.zichttextcell, .zichtdatacell {
-     display: table-cell;
-     width: 50%;
-     font-size: 20px;
-     text-align: left !important;
-}
-
-.luchtvtextcell, .luchtvdatacell {
-     display: table-cell;
-     width: 50%;
-     font-size: 20px;
-     text-align: left !important;
-}
-
-.zonoptextcell, .zonopdatacell {
-     display: table-cell;
-     width: 50%;
-     font-size: 20px;
-     text-align: left !important;
-}
-
-.zondertextcell, .zonderdatacell {
-     display: table-cell;
-     width: 50%;
-     font-size: 20px;
-     text-align: left !important;
-}
-
-.footer {
-     font-size: 11px;
-     line-height: 16px;
-     text-align: left !important;
+/* Optional: fade in on hover */
+.wrapper:hover .footer-cell {
+    opacity: 1;
 }
