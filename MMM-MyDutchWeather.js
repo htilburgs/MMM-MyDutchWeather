@@ -1,16 +1,5 @@
-/*
-//-------------------------------------------
-MMM-MyDutchWeather
-Copyright (C) 2024 - H. Tilburgs
-MIT License
-
-v2.0.0 - 12-11-2024 - API 2.0
-//-------------------------------------------
-*/
-
 Module.register('MMM-MyDutchWeather', {
 
-    // Default values
     defaults: {
         latitude: null,
         longitude: null,
@@ -21,20 +10,17 @@ Module.register('MMM-MyDutchWeather', {
         animationSpeed: 1000,
         initialLoadDelay: 1000,
         retryDelay: 2500,
-        updateInterval: 10 * 60 * 1000 // Every 10 minutes
+        updateInterval: 10 * 60 * 1000
     },
 
-    // Define stylesheet
     getStyles() {
         return ["MMM-MyDutchWeather.css", "weather-icons.css"];
     },
 
-    // Define required scripts
     getScripts() {
         return ["moment.js"];
     },
 
-    // Define required translations
     getTranslations() {
         return {
             nl: "translations/nl.json",
@@ -46,10 +32,22 @@ Module.register('MMM-MyDutchWeather', {
     start() {
         Log.info(`Starting module: ${this.name}`);
         this.requiresVersion = "2.1.0";
+
+        // ✅ Config validation
+        if (!this.config.apiKey || !this.config.latitude || !this.config.longitude) {
+            Log.error("MMM-MyDutchWeather: Missing apiKey, latitude or longitude!");
+            this.error = "Missing configuration";
+            this.loaded = true;
+            return;
+        }
+
         this.url = `https://weerlive.nl/api/weerlive_api_v2.php?key=${this.config.apiKey}&locatie=${this.config.latitude},${this.config.longitude}`;
+
         this.MWB = [];
-        this.scheduleUpdate();
         this.loaded = false;
+        this.error = null;
+
+        this.scheduleUpdate();
     },
 
     getDom() {
@@ -57,22 +55,29 @@ Module.register('MMM-MyDutchWeather', {
         wrapper.className = "wrapper";
         wrapper.style.maxWidth = this.config.maxWidth;
 
+        if (this.error) {
+            wrapper.innerHTML = `Error: ${this.error}`;
+            wrapper.classList.add("bright", "light", "small");
+            return wrapper;
+        }
+
         if (!this.loaded) {
             wrapper.innerHTML = "Loading....";
             wrapper.classList.add("bright", "light", "small");
             return wrapper;
         }
 
-        const { MWB } = this;
-        const { liveweer: WL, uur_verw: WH, wk_verw: WW, api: API } = MWB;
+        const { liveweer: WL, wk_verw: WW, api: API } = this.MWB;
+
+        const current = WL[0];
+        const today = WW[0];
 
         const table = document.createElement("table");
         table.style.maxWidth = this.config.maxWidth;
 
-        const createRow = (className, content) => {
+        const createRow = (className) => {
             const row = document.createElement("tr");
             row.className = className;
-            row.innerHTML = content;
             return row;
         };
 
@@ -83,69 +88,70 @@ Module.register('MMM-MyDutchWeather', {
             return cell;
         };
 
-        // Add location and temperature
-        const WoonplaatsRow = createRow("woonplaats-row", "");
-        WoonplaatsRow.appendChild(createCell("normal woonplaatstextcell", WL[0].plaats));
-        WoonplaatsRow.appendChild(createCell("normal temptextcell", `${WL[0].temp} ℃`));
-        table.appendChild(WoonplaatsRow);
+        // Location + temp
+        const row1 = createRow("woonplaats-row");
+        row1.appendChild(createCell("normal woonplaatstextcell", current.plaats));
+        row1.appendChild(createCell("normal temptextcell", `${current.temp} ℃`));
+        table.appendChild(row1);
 
-        // Add min and max temperature
-        const MinMaxTempRow = createRow("minmaxtemp-row", "");
-        MinMaxTempRow.appendChild(createCell(
+        // Min / max
+        const row2 = createRow("minmaxtemp-row");
+        row2.appendChild(createCell(
             "small maxtempdatacell",
             this.config.showIcons
-                ? `<i class="wi wi-thermometer"></i>&nbsp;${WW[0].max_temp} ℃`
-                : `(Max) ${WW[0].max_temp} ℃`
+                ? `<i class="wi wi-thermometer"></i> ${today.max_temp} ℃`
+                : `(Max) ${today.max_temp} ℃`
         ));
-        MinMaxTempRow.appendChild(createCell(
+        row2.appendChild(createCell(
             "small mintempdatacell",
             this.config.showIcons
-                ? `<i class="wi wi-thermometer-exterior"></i>&nbsp;${WW[0].min_temp} ℃`
-                : `(Min) ${WW[0].min_temp} ℃`
+                ? `<i class="wi wi-thermometer-exterior"></i> ${today.min_temp} ℃`
+                : `(Min) ${today.min_temp} ℃`
         ));
-        table.appendChild(MinMaxTempRow);
+        table.appendChild(row2);
 
-        // Add current weather summary
-        const HuidigRow = createRow("huidig-row", "");
-        HuidigRow.appendChild(createCell("small huidigcell", WL[0].samenv));
-        table.appendChild(HuidigRow);
+        // Summary
+        const row3 = createRow("huidig-row");
+        row3.appendChild(createCell("small huidigcell", current.samenv));
+        table.appendChild(row3);
 
-        // Add extra information if enabled
+        // Extra info
         if (this.config.showExtra) {
-            
-       	const spacer = document.createElement("span");
-	spacer.innerHTML = "&nbsp;";
-	table.appendChild(spacer);
-            
+
+            // ✅ valid spacer row
+            const spacerRow = document.createElement("tr");
+            spacerRow.innerHTML = "<td colspan='2'>&nbsp;</td>";
+            table.appendChild(spacerRow);
+
             const extraInfo = [
-                { icon: "umbrella", text: "RAINFALL-CHANCE", value: `${WW[0].neersl_perc_dag} %` },
-                { icon: "day-sunny", text: "SUN-CHANCE", value: `${WW[0].zond_perc_dag} %` },
-                { icon: "wind-direction", text: "WIND-DIR", value: WW[0].windr },
-                { icon: "strong-wind", text: "WIND-FORCE", value: `${WW[0].windkmh} Kmh` },
-                { icon: "barometer", text: "AIR-PRESS", value: WL[0].luchtd },
-                { icon: "alien", text: "VISIBILITY", value: `${WL[0].zicht} KM` },
-                { icon: "humidity", text: "AIR-MOIST", value: `${WL[0].lv} %` },
-                { icon: "sunrise", text: "SUNUP", value: WL[0].sup },
-                { icon: "sunset", text: "SUNDOWN", value: WL[0].sunder }
+                { icon: "umbrella", text: "RAINFALL-CHANCE", value: `${today.neersl_perc_dag} %` },
+                { icon: "day-sunny", text: "SUN-CHANCE", value: `${today.zond_perc_dag} %` },
+                { icon: "wind-direction", text: "WIND-DIR", value: today.windr },
+                { icon: "strong-wind", text: "WIND-FORCE", value: `${today.windkmh} km/h` },
+                { icon: "barometer", text: "AIR-PRESS", value: current.luchtd },
+                { icon: "alien", text: "VISIBILITY", value: `${current.zicht} km` },
+                { icon: "humidity", text: "AIR-MOIST", value: `${current.lv} %` },
+                { icon: "sunrise", text: "SUNUP", value: current.sup },
+                { icon: "sunset", text: "SUNDOWN", value: current.sunder }
             ];
 
             extraInfo.forEach(info => {
-                const row = createRow(`${info.text.toLowerCase()}-row`, "");
-                row.appendChild(
-                    createCell(
-                        `small ${info.text.toLowerCase()}textcell`,
-                        this.config.showIcons
-                            ? `<i class="wi wi-${info.icon}"></i>`
-                            : this.translate(info.text)
-                    )
-                );
+                const row = createRow(`${info.text.toLowerCase()}-row`);
+                row.appendChild(createCell(
+                    `small ${info.text.toLowerCase()}textcell`,
+                    this.config.showIcons
+                        ? `<i class="wi wi-${info.icon}"></i>`
+                        : this.translate(info.text)
+                ));
                 row.appendChild(createCell(`small ${info.text.toLowerCase()}datacell`, info.value));
                 table.appendChild(row);
             });
         }
 
-        // Add footer
-        table.appendChild(createRow("footer", API[0].bron));
+        // Footer
+        const footer = createRow("footer");
+        footer.appendChild(createCell("small", API[0].bron));
+        table.appendChild(footer);
 
         return table;
     },
@@ -153,11 +159,20 @@ Module.register('MMM-MyDutchWeather', {
     processMWB(data) {
         this.MWB = data;
         this.loaded = true;
+        this.error = null;
     },
 
     scheduleUpdate() {
-        setInterval(() => this.getMWB(), this.config.updateInterval);
+        this.timer = setInterval(() => this.getMWB(), this.config.updateInterval);
         this.getMWB();
+    },
+
+    suspend() {
+        if (this.timer) clearInterval(this.timer);
+    },
+
+    resume() {
+        this.scheduleUpdate();
     },
 
     getMWB() {
@@ -167,6 +182,9 @@ Module.register('MMM-MyDutchWeather', {
     socketNotificationReceived(notification, payload) {
         if (notification === "MWB_RESULT") {
             this.processMWB(payload);
+        } else if (notification === "MWB_ERROR") {
+            this.error = payload;
+            this.loaded = true;
         }
         this.updateDom(this.config.animationSpeed);
     }
