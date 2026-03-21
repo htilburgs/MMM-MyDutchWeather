@@ -1,12 +1,13 @@
-.wrapper {
-    margin: 0 auto;
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-}
-
 table {
     width: 100%;
     border-collapse: collapse;
+    table-layout: fixed; /* ✅ forces equal column widths */
     text-align: left;
+}
+
+table td {
+    width: 50%; /* ✅ each column takes half the table */
+    word-wrap: break-word; /* optional, for long text */
 }
 
 .woonplaats-row .temptextcell {
@@ -27,7 +28,7 @@ td.small {
     padding: 2px 4px;
 }
 
-/* Extra info */
+/* Extra info icons */
 td.small i {
     margin-right: 4px;
 }
@@ -43,7 +44,6 @@ td.small i {
     transition: opacity 0.5s ease;
 }
 
-/* Optional: fade in on hover */
 .wrapper:hover .footer-cell {
     opacity: 1;
 }
